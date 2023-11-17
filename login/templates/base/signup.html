@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    </head>
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong> {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    <div id="outer">
+        <form action="/signup" method="post">
+        {% csrf_token %}
+        <div id="inner">
+            <div id="title">
+                <h1>Hello, Friend!</h1>
+				<p>Enter your personal details and <br>start journey with us</p>
+            </div>
+                    
+
+            <div id="name">
+            <label for="" >
+            </div>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            </label>
+            <br>
+
+            <div id="name">
+            <label for="" >
+            </div>
+            <input type="text" id="name" name="fname" placeholder="First Name" required>
+            </label>
+            <br>
+
+            <div  id="name">
+            <label for="" >
+            </div>
+            <input type="text" id="name" name="lname" placeholder="Last Name" required>
+            </label>
+            <br>
+
+            <div id="name">
+            <label for="" >
+            </div>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            </label>
+            <br>
+
+            <div id="name">
+            <label for="" >
+            </div>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            </label>
+            <br>
+
+            <div id="name">
+            <label for="" >
+            </div>
+            <input type="password" id="conform" name="conform" placeholder="Confirm Password" required>
+            </label>
+            <br>
+
+
+            <button type="submit">Sign up</button>
+        </div>
+        </form>
+    </div>
+
+    
+</body>
+</html>

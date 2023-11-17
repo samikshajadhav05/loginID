@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+</head>
+<body>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong> {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+<div id="outer">
+    <form action="/signin" method="post">
+        <h1>Welcome Back!</h1>
+	    <p>To keep connected with us<br> please login with your personal info</p>
+    {% csrf_token %}
+        <div id="inner">
+        <label for="" ></label>
+        </div>
+        <input type="text" id="username" name="username" placeholder="Username" required>
+        <br>
+
+        <div id="inner">
+        <label for="" ></label>
+        </div>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <br>
+
+        <button type="submit">Log In</button>
+
+    </form>
+</div>
+</body>
+</html>

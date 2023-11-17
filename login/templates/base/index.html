@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>base</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong> {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    <div id="outer">
+        <h1>Welcome to our website</h1>
+        
+        <div id="inner">
+            {% if user.is_authenticated %}
+            <h1>You have successfully logged in.</h1>
+            <br>
+            <button id="signout" type="submit"><a href="signout">Log Out</a></button>
+            
+
+            {% else %}
+            
+            <button type="submit"><a href="signup">Sign Up</a></button>
+            <br>
+            <button type="submit"><a href="signin">Log In</a></button>
+        
+            {% endif %}
+        </div>    
+    </div>
+</body>
+</html>
